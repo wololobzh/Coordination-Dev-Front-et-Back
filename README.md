@@ -76,7 +76,7 @@ Les deux couches de l’application devront être **parfaitement séparées** :
 * Publier / dépublier un événement.
 * Consulter la liste des inscrits à chaque événement.
 
-### **C. Fonctionnalités bonus (optionnelles)**
+### **C. Fonctionnalités bonus**
 
 * Notification email lors d’une inscription ou d’une annulation.
 * Upload d’image pour un événement.
@@ -132,7 +132,7 @@ Les deux couches de l’application devront être **parfaitement séparées** :
 * Utilisation de **Git** avec branches séparées (`frontend`, `backend`, `main`)
 * Intégration continue via **GitHub Actions** ou **GitLab CI**
 * Étapes automatiques : lint + tests + build
-* Déploiement sur Vercel (front) et Render/Railway (back)
+* Déploiement possible sur n'importe quels VPS. Le formateur testera sur un VPS OVH.
 * Conteneurisation avec **Docker**
 
 ---
