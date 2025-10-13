@@ -141,7 +141,7 @@ Les deux couches de l’application devront être **parfaitement séparées** :
 
 | Phase                             | Objectif                                          | Livrables                         |
 | --------------------------------- | ------------------------------------------------- | --------------------------------- |
-| **Phase 1 : Cadrage**             | Définition des rôles, architecture, outils et API | Cahier des charges + schéma d’API |
+| **Phase 1 : Cadrage**             | Définition des rôles, architecture, GANTT, outils et API | Cahier des charges + schéma d’API |
 | **Phase 2 : Développement**       | Développement parallèle front / back              | Code source propre + doc Swagger  |
 | **Phase 3 : Intégration & tests** | Intégration complète + pipeline CI/CD             | Version stable + rapport de tests |
 | **Phase 4 : Soutenance**          | Présentation du projet et démo                    | Présentation orale + support PDF  |
