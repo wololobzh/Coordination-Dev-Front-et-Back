@@ -1,6 +1,4 @@
-# Sujet de projet – Coordination développement Front & Back
-
-### **Titre : Plateforme de gestion d’événements avec API partagée**
+# Plateforme de gestion d’événements avec API partagée**
 
 ---
 
