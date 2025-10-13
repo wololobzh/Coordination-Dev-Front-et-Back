@@ -139,7 +139,7 @@ Les deux couches de l’application devront être **parfaitement séparées** :
 
 ## **8. Organisation du projet**
 
-| Phase                             | Objectif                                          | Livrables                         |
+| Phase                             | Objectif                                          | Livrables                         | 
 | --------------------------------- | ------------------------------------------------- | --------------------------------- |
 | **Phase 1 : Cadrage**             | Définition des rôles, architecture, GANTT, outils et API | Cahier des charges + schéma d’API |
 | **Phase 2 : Développement**       | Développement parallèle front / back              | Code source propre + doc Swagger  |
