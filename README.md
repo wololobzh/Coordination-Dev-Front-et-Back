@@ -133,7 +133,7 @@ Les deux couches de l’application devront être **parfaitement séparées** :
 * Intégration continue via **GitHub Actions** ou **GitLab CI**
 * Étapes automatiques : lint + tests + build
 * Déploiement sur Vercel (front) et Render/Railway (back)
-* (Bonus) Conteneurisation avec **Docker**
+* Conteneurisation avec **Docker**
 
 ---
 
