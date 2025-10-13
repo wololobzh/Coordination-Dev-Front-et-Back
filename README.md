@@ -1,4 +1,4 @@
-# Plateforme de gestion d’événements avec API partagée**
+# Plateforme de gestion d’événements avec API partagée
 
 ---
 
