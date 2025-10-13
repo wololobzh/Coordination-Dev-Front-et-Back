@@ -1,172 +1,191 @@
-## 🎓 **Projet encadré – Coordination développement Front & Back**
+# 🧩 Sujet de projet – Coordination développement Front & Back
 
-### **Plateforme de gestion d’événements avec API partagée**
-
----
-
-### 🧩 **1. Contexte général**
-
-Les entreprises, écoles et associations organisent régulièrement des événements (conférences, ateliers, séminaires, hackathons, webinaires…).
-Ce projet a pour objectif de concevoir et développer une **application web moderne** permettant :
-
-* la **publication et gestion d’événements** par les administrateurs,
-* l’**inscription et la consultation** d’événements par les utilisateurs,
-* une **communication fluide entre le front-end et le back-end**, à travers une **API documentée et sécurisée**.
-
-Le projet est à réaliser en **binômes ou trinômes**, avec une répartition claire :
-
-* 1 à 2 développeurs **Front-End**
-* 1 à 2 développeurs **Back-End**
-
-Les étudiants devront **collaborer étroitement** pour définir, implémenter et tester les points d’échange entre les deux couches.
+### **Titre : Plateforme de gestion d’événements avec API partagée**
 
 ---
 
-### 🎯 **2. Objectifs pédagogiques**
+## **1. Contexte du projet**
 
-À la fin du projet, les apprenants seront capables de :
+Les organisations, écoles ou entreprises doivent souvent gérer la création, la publication et la gestion d’événements : conférences, ateliers, formations, séminaires, webinaires, etc.
+Ce projet vise à développer une **application web complète** permettant :
 
-1. **Concevoir une architecture front/back cohérente** et découplée.
-2. **Définir, documenter et implémenter une API RESTful**.
-3. **Organiser la collaboration entre équipes front et back** (versioning, communication, test d’intégration).
-4. **Mettre en place un pipeline CI/CD** (lint, tests, build, déploiement).
-5. **Rédiger une documentation technique et utilisateur claire**.
-6. **Présenter et justifier les choix techniques** lors de la soutenance.
+* aux **administrateurs** de publier et gérer des événements,
+* aux **utilisateurs** de consulter et s’inscrire à ces événements,
+* et à l’équipe projet de **coordonner efficacement le développement du front-end et du back-end**.
 
----
-
-### 🧱 **3. Architecture cible**
-
-#### 3.1. Vision générale
-
-```
-[Frontend SPA] <-----> [API REST Backend] <-----> [Database]
-     (React)                 (Express / Django)         (PostgreSQL)
-```
-
-* Les deux couches communiquent uniquement via l’API.
-* L’API est **documentée (Swagger)** et **versionnée** (`/api/v1/...`).
-* Le déploiement peut se faire sur des plateformes gratuites (Vercel, Render, Railway, etc.).
+L’objectif pédagogique est de simuler un environnement de production où plusieurs équipes doivent collaborer autour d’une architecture distribuée et d’interfaces clairement définies.
 
 ---
 
-### 🧩 **4. Spécifications fonctionnelles**
+## **2. Objectifs pédagogiques**
 
-#### 4.1. Rôles utilisateurs
+À l’issue du projet, vous serez capables de :
 
-| Rôle                    | Description                 | Accès                                                          |
-| ----------------------- | --------------------------- | -------------------------------------------------------------- |
-| **Visiteur**            | Utilisateur non connecté    | Consultation d’événements publics                              |
-| **Utilisateur inscrit** | Utilisateur authentifié     | Inscription / désinscription à un événement, gestion du profil |
-| **Administrateur**      | Gestion complète du contenu | CRUD complet sur événements et utilisateurs                    |
-
----
-
-#### 4.2. Fonctionnalités principales
-
-##### **A. Gestion des événements (Administrateur)**
-
-* Créer un nouvel événement : titre, description, lieu, date/heure, capacité, image, visibilité (public/privé).
-* Modifier ou supprimer un événement.
-* Voir la liste des participants.
-* Publier ou dépublier un événement.
-
-##### **B. Consultation (Tous utilisateurs)**
-
-* Afficher la liste des événements à venir.
-* Filtrer/sélectionner les événements par catégorie, date, lieu.
-* Voir les détails d’un événement (description, organisateur, nombre de places restantes).
-
-##### **C. Inscriptions (Utilisateur connecté)**
-
-* S’inscrire à un événement si des places sont disponibles.
-* Se désinscrire d’un événement avant sa date.
-* Consulter la liste de ses inscriptions dans son espace personnel.
-
-##### **D. Gestion du compte utilisateur**
-
-* Créer un compte (nom, email, mot de passe).
-* Se connecter / se déconnecter (JWT).
-* Modifier son profil (nom, avatar, mot de passe).
-* Supprimer son compte (optionnel).
-
-##### **E. Notifications (bonus / optionnel)**
-
-* Envoyer un email de confirmation d’inscription.
-* Avertir les participants si un événement est modifié ou annulé.
+1. Concevoir une architecture **front/back découplée et cohérente**.
+2. **Définir, documenter et implémenter une API RESTful** claire et maintenable.
+3. **Collaborer efficacement** entre équipes front et back grâce à une communication structurée (contrats d’API, versioning, outils).
+4. Mettre en place un **pipeline CI/CD** pour automatiser les tests, la validation et le déploiement.
+5. Garantir la **qualité du code, la sécurité et la performance** de l’application.
+6. Documenter et présenter votre solution de manière professionnelle.
 
 ---
 
-### 🧾 **5. Liste exhaustive des Use Cases (UML simplifié)**
+## **3. Description générale**
 
-| ID   | Titre du use case                 | Acteur         | Description                                                       |
-| ---- | --------------------------------- | -------------- | ----------------------------------------------------------------- |
-| UC01 | Consulter la liste des événements | Visiteur       | Le visiteur consulte la page listant les événements publics.      |
-| UC02 | Filtrer les événements            | Visiteur       | Le visiteur applique un filtre (par date, catégorie ou lieu).     |
-| UC03 | Voir le détail d’un événement     | Visiteur       | Le visiteur consulte la fiche d’un événement sélectionné.         |
-| UC04 | Créer un compte utilisateur       | Visiteur       | Le visiteur crée un compte via un formulaire.                     |
-| UC05 | Se connecter                      | Utilisateur    | L’utilisateur s’authentifie via JWT et accède à son espace.       |
-| UC06 | Modifier son profil               | Utilisateur    | L’utilisateur met à jour ses informations personnelles.           |
-| UC07 | S’inscrire à un événement         | Utilisateur    | L’utilisateur inscrit son compte à un événement public.           |
-| UC08 | Se désinscrire d’un événement     | Utilisateur    | L’utilisateur retire sa participation.                            |
-| UC09 | Consulter ses inscriptions        | Utilisateur    | L’utilisateur voit la liste des événements auxquels il participe. |
-| UC10 | Créer un événement                | Administrateur | L’administrateur crée un nouvel événement via un formulaire.      |
-| UC11 | Modifier un événement             | Administrateur | L’administrateur met à jour les informations d’un événement.      |
-| UC12 | Supprimer un événement            | Administrateur | L’administrateur supprime un événement.                           |
-| UC13 | Consulter les inscrits            | Administrateur | L’administrateur voit la liste des participants.                  |
-| UC14 | Publier/Dépublier un événement    | Administrateur | L’administrateur contrôle la visibilité publique.                 |
+L’application doit permettre de :
+
+* **Lister** les événements publics à venir,
+* **Afficher** le détail d’un événement,
+* **Permettre** à un utilisateur connecté de s’y inscrire,
+* **Gérer** les événements et utilisateurs côté administrateur.
+
+Les deux couches de l’application devront être **parfaitement séparées** :
+
+* Le **Front-end** (SPA – Single Page Application) consommera uniquement l’API.
+* Le **Back-end** (API RESTful) gérera la logique métier et les accès à la base de données.
 
 ---
 
-### 🧰 **6. Contraintes techniques**
+## **4. Rôles et responsabilités**
 
-#### 6.1. Backend
-
-* **Langage** : Node.js (Express) ou Python (Django REST Framework).
-* **Base de données** : PostgreSQL ou MongoDB.
-* **Architecture RESTful**, avec versioning des endpoints.
-* **Authentification JWT** (login/logout).
-* **ORM** : Sequelize / Prisma / Django ORM.
-* **Validation des données** : Joi, Pydantic ou équivalent.
-* **Documentation Swagger** générée automatiquement.
-* **Tests unitaires & d’intégration** (Jest ou Pytest).
-
-#### 6.2. Frontend
-
-* **Framework** : React (ou Vue.js / Angular).
-* **Gestion d’état** : Redux Toolkit, Zustand ou Pinia.
-* **Appels API** via Axios ou Fetch.
-* **Routing** avec React Router.
-* **UI responsive** (Material UI, Tailwind ou Bootstrap).
-* **Tests** : React Testing Library ou Cypress.
-
-#### 6.3. CI/CD
-
-* **Git obligatoire** : branches “frontend” / “backend” + PR fusionnées après revue.
-* **CI/CD** : GitHub Actions (lint + test + build).
-* **Conteneurisation (bonus)** : Dockerfile pour chaque service.
-* **Déploiement** : Vercel (front) + Render/Railway (back).
+| Rôle               | Description                 | Accès                                                          |
+| ------------------ | --------------------------- | -------------------------------------------------------------- |
+| **Visiteur**       | Utilisateur non connecté    | Consultation des événements publics                            |
+| **Utilisateur**    | Utilisateur authentifié     | Inscription / désinscription à un événement, gestion du profil |
+| **Administrateur** | Gestion complète du contenu | CRUD complet sur événements et utilisateurs                    |
 
 ---
 
-### 📦 **7. Livrables attendus**
+## **5. Fonctionnalités à implémenter**
 
-| Phase                 | Livrables                                                     | Format attendu           |
-| --------------------- | ------------------------------------------------------------- | ------------------------ |
-| Phase 1 – Cadrage     | Cahier des charges, schéma d’API, diagramme de données        | Markdown / PDF           |
-| Phase 2 – Dev         | Code source structuré, documentation Swagger, scripts init DB | Dépôt Git                |
-| Phase 3 – Intégration | Version stable + logs CI/CD + tests                           | Dépôt Git / Lien déployé |
-| Phase 4 – Soutenance  | Démo live + présentation technique (10-15 min)                | Support PDF ou slides    |
+### **A. Fonctionnalités utilisateur**
+
+* Consulter la **liste des événements publics**.
+* Filtrer les événements par **catégorie, date ou lieu**.
+* Voir le **détail complet d’un événement** (description, image, date, lieu, capacité).
+* Créer un **compte utilisateur** (inscription).
+* Se **connecter / déconnecter** (JWT).
+* S’inscrire ou se désinscrire à un événement.
+* Consulter la **liste de ses inscriptions** dans un espace personnel.
+* Modifier son profil (nom, email, mot de passe).
+
+### **B. Fonctionnalités administrateur**
+
+* Créer, modifier ou supprimer un événement.
+* Définir la **capacité maximale** et la **visibilité** (public/privé).
+* Publier / dépublier un événement.
+* Consulter la liste des inscrits à chaque événement.
+
+### **C. Fonctionnalités bonus (optionnelles)**
+
+* Notification email lors d’une inscription ou d’une annulation.
+* Upload d’image pour un événement.
+* Pagination et recherche par mot-clé.
 
 ---
 
-### 🧮 **8. Évaluation détaillée**
+## **6. Liste complète des Use Cases**
 
-| Critère                                  | Description                                                | Pondération |
-| ---------------------------------------- | ---------------------------------------------------------- | ----------- |
-| **Fonctionnalités livrées**              | Respect des use cases, fonctionnement global               | 25 %        |
-| **Qualité du code et de l’architecture** | Lisibilité, modularité, cohérence des API                  | 25 %        |
-| **Documentation**                        | Swagger complet, README clair, instructions d’installation | 15 %        |
-| **CI/CD et tests**                       | Pipeline opérationnel + couverture de tests minimale       | 15 %        |
-| **Coordination front/back**              | Communication, versioning, intégration fluide              | 10 %        |
-| **Soutenance**                           | Clarté, justification des choix, démonstration             | 10 %        |
+| ID   | Titre du use case                 | Acteur         | Description                                                            |
+| ---- | --------------------------------- | -------------- | ---------------------------------------------------------------------- |
+| UC01 | Consulter la liste des événements | Visiteur       | Le visiteur accède à la page listant les événements publics.           |
+| UC02 | Filtrer les événements            | Visiteur       | Il applique un filtre par catégorie, date ou lieu.                     |
+| UC03 | Voir le détail d’un événement     | Visiteur       | Il consulte la fiche détaillée d’un événement.                         |
+| UC04 | Créer un compte utilisateur       | Visiteur       | Le visiteur crée un compte pour s’inscrire à des événements.           |
+| UC05 | Se connecter                      | Utilisateur    | L’utilisateur s’authentifie pour accéder à son espace.                 |
+| UC06 | Modifier son profil               | Utilisateur    | L’utilisateur met à jour ses informations personnelles.                |
+| UC07 | S’inscrire à un événement         | Utilisateur    | L’utilisateur s’inscrit à un événement si des places sont disponibles. |
+| UC08 | Se désinscrire d’un événement     | Utilisateur    | L’utilisateur retire sa participation avant la date limite.            |
+| UC09 | Consulter ses inscriptions        | Utilisateur    | L’utilisateur consulte les événements auxquels il participe.           |
+| UC10 | Créer un événement                | Administrateur | L’administrateur ajoute un nouvel événement.                           |
+| UC11 | Modifier un événement             | Administrateur | L’administrateur met à jour les informations d’un événement.           |
+| UC12 | Supprimer un événement            | Administrateur | L’administrateur supprime un événement.                                |
+| UC13 | Publier / Dépublier un événement  | Administrateur | L’administrateur contrôle la visibilité publique.                      |
+| UC14 | Consulter les inscrits            | Administrateur | L’administrateur visualise la liste des participants.                  |
+
+---
+
+## **7. Contraintes techniques**
+
+### **Back-end**
+
+* Langage : **Node.js (Express)** ou **Python (Django REST Framework)**
+* Base de données : **PostgreSQL** ou **MongoDB**
+* Architecture RESTful et versionnée (`/api/v1/...`)
+* Authentification **JWT** (login/logout)
+* ORM : Sequelize / Prisma / Django ORM
+* Documentation : **Swagger / OpenAPI** obligatoire
+* Tests unitaires et d’intégration (Jest, Pytest, etc.)
+* Respect du CORS pour la communication avec le front
+
+### **Front-end**
+
+* Framework : **React** (ou Vue.js / Angular)
+* Gestion d’état : Redux Toolkit / Zustand / Pinia
+* Appels API via Axios ou Fetch
+* Routing : React Router
+* Interface responsive et claire
+* Tests : React Testing Library ou Cypress
+
+### **CI/CD**
+
+* Utilisation de **Git** avec branches séparées (`frontend`, `backend`, `main`)
+* Intégration continue via **GitHub Actions** ou **GitLab CI**
+* Étapes automatiques : lint + tests + build
+* Déploiement sur Vercel (front) et Render/Railway (back)
+* (Bonus) Conteneurisation avec **Docker**
+
+---
+
+## **8. Organisation du projet**
+
+| Phase                             | Objectif                                          | Livrables                         |
+| --------------------------------- | ------------------------------------------------- | --------------------------------- |
+| **Phase 1 : Cadrage**             | Définition des rôles, architecture, outils et API | Cahier des charges + schéma d’API |
+| **Phase 2 : Développement**       | Développement parallèle front / back              | Code source propre + doc Swagger  |
+| **Phase 3 : Intégration & tests** | Intégration complète + pipeline CI/CD             | Version stable + rapport de tests |
+| **Phase 4 : Soutenance**          | Présentation du projet et démo                    | Présentation orale + support PDF  |
+
+---
+
+## **9. Livrables attendus**
+
+* **Dépôt Git complet** (frontend + backend) avec README détaillé.
+* **Documentation technique** (API, installation, exécution).
+* **Documentation utilisateur** (usage basique, captures).
+* **Lien vers la version déployée** (front + back).
+* **Support de présentation pour la soutenance**.
+
+---
+
+## **10. Évaluation**
+
+| Critère                                  | Détails                                   | Pondération |
+| ---------------------------------------- | ----------------------------------------- | ----------- |
+| **Respect des fonctionnalités**          | Conformité aux use cases                  | 25 %        |
+| **Qualité du code et de l’architecture** | Structure, propreté, cohérence            | 25 %        |
+| **Documentation**                        | Swagger, README, guide d’installation     | 15 %        |
+| **CI/CD & tests**                        | Automatisation, couverture minimale       | 15 %        |
+| **Coordination front/back**              | Communication, intégration, gestion API   | 10 %        |
+| **Présentation / soutenance**            | Clarté, maîtrise technique, démonstration | 10 %        |
+
+---
+
+## **11. Ressources recommandées**
+
+* [React Documentation](https://react.dev)
+* [Express.js](https://expressjs.com/) / [Django REST Framework](https://www.django-rest-framework.org/)
+* [Swagger Editor](https://editor.swagger.io/)
+* [GitHub Actions](https://docs.github.com/actions)
+* [Docker Getting Started](https://docs.docker.com/get-started/)
+
+---
+
+## **12. Conseils de réussite**
+
+* **Définissez l’API dès le départ** : le contrat d’échange est la clé du projet.
+* **Synchronisez régulièrement vos branches front/back**.
+* **Testez vos endpoints isolément** (Postman / Insomnia) avant d’intégrer.
+* **Versionnez vos données et vos routes** pour éviter les incohérences.
+* **Documentez tout** : l’oubli de la doc est pénalisé.
+* Une intégration propre vaut mieux qu’une surenchère de fonctionnalités non terminées.
