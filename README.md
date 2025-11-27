@@ -6,6 +6,8 @@ https://github.com/Virgile-Eratel/TopEvent-Front.git
 
 https://github.com/gansabi/TopEvent-Back.git
 
+http://51.254.205.63:3002
+
 ---
 
 ## **1. Contexte du projet**
