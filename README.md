@@ -1,5 +1,10 @@
 # Plateforme de gestion d’événements avec API partagée
 
+Résultat : 
+
+https://github.com/Virgile-Eratel/TopEvent-Front.git
+https://github.com/gansabi/TopEvent-Back.git
+
 ---
 
 ## **1. Contexte du projet**
