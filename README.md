@@ -1,197 +1,223 @@
-# Plateforme de gestion d’événements avec API partagée
+# Soutenance finale du projet – Plateforme de gestion d’événements
 
-Résultat : 
+Cette soutenance finale a pour objectif d’évaluer la maîtrise globale du projet, la capacité du groupe à concevoir, développer, déployer et maintenir une application web complète, ainsi que la qualité professionnelle de la démarche technique et organisationnelle.
 
-https://github.com/Virgile-Eratel/TopEvent-Front.git
-
-https://github.com/gansabi/TopEvent-Back.git
-
-http://51.254.205.63:3002
+Le projet évalué est la plateforme de gestion d’événements TopEvent, composée d’un front-end SPA et d’un back-end API REST, déployés et accessibles en ligne.
 
 ---
 
-## **1. Contexte du projet**
+## Durée et organisation de la soutenance
 
-Les organisations, écoles ou entreprises doivent souvent gérer la création, la publication et la gestion d’événements : conférences, ateliers, formations, séminaires, webinaires, etc.
-Ce projet vise à développer une **application web complète** permettant :
+### Durée totale : 75 minutes (présentation en groupe)
 
-* aux **administrateurs** de publier et gérer des événements,
-* aux **utilisateurs** de consulter et s’inscrire à ces événements,
-* et à l’équipe projet de **coordonner efficacement le développement du front-end et du back-end**.
+* 45 minutes de présentation et démonstration
+* 30 minutes de questions-réponses
 
-L’objectif pédagogique est de simuler un environnement de production où plusieurs équipes doivent collaborer autour d’une architecture distribuée et d’interfaces clairement définies.
-
----
-
-## **2. Objectifs pédagogiques**
-
-À l’issue du projet, vous serez capables de :
-
-1. Concevoir une architecture **front/back découplée et cohérente**.
-2. **Définir, documenter et implémenter une API RESTful** claire et maintenable.
-3. **Collaborer efficacement** entre équipes front et back grâce à une communication structurée (contrats d’API, versioning, outils).
-4. Mettre en place un **pipeline CI/CD** pour automatiser les tests, la validation et le déploiement.
-5. Garantir la **qualité du code, la sécurité et la performance** de l’application.
-6. Documenter et présenter votre solution de manière professionnelle.
+La soutenance est collective (groupe de 5 personnes).
+Chaque membre du groupe doit prendre la parole et présenter une partie clairement identifiée du projet.
 
 ---
 
-## **3. Description générale**
+## Répartition attendue de la parole
 
-L’application doit permettre de :
+La répartition ci-dessous est indicative. Elle peut être adaptée, à condition que tous les aspects du projet soient couverts.
 
-* **Lister** les événements publics à venir,
-* **Afficher** le détail d’un événement,
-* **Permettre** à un utilisateur connecté de s’y inscrire,
-* **Gérer** les événements et utilisateurs côté administrateur.
-
-Les deux couches de l’application devront être **parfaitement séparées** :
-
-* Le **Front-end** (SPA – Single Page Application) consommera uniquement l’API.
-* Le **Back-end** (API RESTful) gérera la logique métier et les accès à la base de données.
+| Membre | Thématique principale                              |
+| ------ | -------------------------------------------------- |
+| 1      | Conception, cadrage, besoins, use cases            |
+| 2      | Architecture globale et choix techniques           |
+| 3      | Back-end, API, base de données, sécurité           |
+| 4      | Front-end, UX, gestion d’état, intégration API     |
+| 5      | Docker, environnements, CI/CD, DevOps, déploiement |
 
 ---
 
-## **4. Rôles et responsabilités**
+## Structure attendue de la présentation (45 minutes)
 
-| Rôle               | Description                 | Accès                                                          |
-| ------------------ | --------------------------- | -------------------------------------------------------------- |
-| **Visiteur**       | Utilisateur non connecté    | Consultation des événements publics                            |
-| **Utilisateur**    | Utilisateur authentifié     | Inscription / désinscription à un événement, gestion du profil |
-| **Administrateur** | Gestion complète du contenu | CRUD complet sur événements et utilisateurs                    |
+### 1. Introduction et contexte (5 minutes)
 
----
+Objectif : poser le cadre du projet.
 
-## **5. Fonctionnalités à implémenter**
-
-### **A. Fonctionnalités utilisateur**
-
-* Consulter la **liste des événements publics**.
-* Filtrer les événements par **catégorie, date ou lieu**.
-* Voir le **détail complet d’un événement** (description, image, date, lieu, capacité).
-* Créer un **compte utilisateur** (inscription).
-* Se **connecter / déconnecter** (JWT).
-* S’inscrire ou se désinscrire à un événement.
-* Consulter la **liste de ses inscriptions** dans un espace personnel.
-* Modifier son profil (nom, email, mot de passe).
-
-### **B. Fonctionnalités administrateur**
-
-* Créer, modifier ou supprimer un événement.
-* Définir la **capacité maximale** et la **visibilité** (public/privé).
-* Publier / dépublier un événement.
-* Consulter la liste des inscrits à chaque événement.
-
-### **C. Fonctionnalités bonus**
-
-* Notification email lors d’une inscription ou d’une annulation.
-* Upload d’image pour un événement.
-* Pagination et recherche par mot-clé.
+* Présentation générale du projet TopEvent
+* Problématique métier adressée
+* Publics cibles (visiteurs, utilisateurs, administrateurs)
+* Objectifs fonctionnels et pédagogiques
+* Organisation de l’équipe et répartition front/back
 
 ---
 
-## **6. Liste complète des Use Cases**
+### 2. Conception et cadrage du projet (7 minutes)
 
-| ID   | Titre du use case                 | Acteur         | Description                                                            |
-| ---- | --------------------------------- | -------------- | ---------------------------------------------------------------------- |
-| UC01 | Consulter la liste des événements | Visiteur       | Le visiteur accède à la page listant les événements publics.           |
-| UC02 | Filtrer les événements            | Visiteur       | Il applique un filtre par catégorie, date ou lieu.                     |
-| UC03 | Voir le détail d’un événement     | Visiteur       | Il consulte la fiche détaillée d’un événement.                         |
-| UC04 | Créer un compte utilisateur       | Visiteur       | Le visiteur crée un compte pour s’inscrire à des événements.           |
-| UC05 | Se connecter                      | Utilisateur    | L’utilisateur s’authentifie pour accéder à son espace.                 |
-| UC06 | Modifier son profil               | Utilisateur    | L’utilisateur met à jour ses informations personnelles.                |
-| UC07 | S’inscrire à un événement         | Utilisateur    | L’utilisateur s’inscrit à un événement si des places sont disponibles. |
-| UC08 | Se désinscrire d’un événement     | Utilisateur    | L’utilisateur retire sa participation avant la date limite.            |
-| UC09 | Consulter ses inscriptions        | Utilisateur    | L’utilisateur consulte les événements auxquels il participe.           |
-| UC10 | Créer un événement                | Administrateur | L’administrateur ajoute un nouvel événement.                           |
-| UC11 | Modifier un événement             | Administrateur | L’administrateur met à jour les informations d’un événement.           |
-| UC12 | Supprimer un événement            | Administrateur | L’administrateur supprime un événement.                                |
-| UC13 | Publier / Dépublier un événement  | Administrateur | L’administrateur contrôle la visibilité publique.                      |
-| UC14 | Consulter les inscrits            | Administrateur | L’administrateur visualise la liste des participants.                  |
+Objectif : démontrer une démarche de conception structurée.
+
+À présenter :
+
+* Analyse du besoin initial
+* Identification des acteurs et des use cases clés
+* Gestion des rôles et des permissions
+* Choix d’une architecture front/back découplée
+* Définition du contrat d’API (routes, payloads, statuts HTTP)
+* Versionnement de l’API (/api/v1)
+
+Les choix doivent être justifiés.
 
 ---
 
-## **7. Contraintes techniques**
+### 3. Architecture technique globale (7 minutes)
 
-### **Back-end**
+Objectif : montrer une vision d’ensemble cohérente du système.
 
-* Langage : **Node.js (Express)** ou **Python (Django REST Framework)**
-* Base de données : **PostgreSQL** ou **MongoDB**
-* Architecture RESTful et versionnée (`/api/v1/...`)
-* Authentification **JWT** (login/logout)
-* ORM : Sequelize / Prisma / Django ORM
-* Documentation : **Swagger / OpenAPI** obligatoire
-* Tests unitaires et d’intégration (Jest, Pytest, etc.)
-* Respect du CORS pour la communication avec le front
+À détailler :
 
-### **Front-end**
+* Schéma d’architecture globale
+* Séparation des responsabilités
 
-* Framework : **React** (ou Vue.js / Angular)
-* Gestion d’état : Redux Toolkit / Zustand / Pinia
-* Appels API via Axios ou Fetch
-* Routing : React Router
-* Interface responsive et claire
-* Tests : React Testing Library ou Cypress
-
-### **CI/CD**
-
-* Utilisation de **Git** avec branches séparées (`frontend`, `backend`, `main`)
-* Intégration continue via **GitHub Actions** ou **GitLab CI**
-* Étapes automatiques : lint + tests + build
-* Déploiement possible sur n'importe quels VPS. Le formateur testera sur un VPS OVH.
-* Conteneurisation avec **Docker**
+  * Front-end (SPA)
+  * Back-end (API REST)
+  * Base de données
+* Communication front/back (HTTP, JSON, JWT)
+* Gestion des environnements (développement, production)
 
 ---
 
-## **8. Organisation du projet**
+### 4. Back-end et API (8 minutes)
 
-| Phase                             | Objectif                                          | Livrables                         | 
-| --------------------------------- | ------------------------------------------------- | --------------------------------- |
-| **Phase 1 : Cadrage**             | Définition des rôles, architecture, GANTT, outils et API | Cahier des charges + schéma d’API |
-| **Phase 2 : Développement**       | Développement parallèle front / back              | Code source propre + doc Swagger  |
-| **Phase 3 : Intégration & tests** | Intégration complète + pipeline CI/CD             | Version stable + rapport de tests |
-| **Phase 4 : Soutenance**          | Présentation du projet et démo                    | Présentation orale + support PDF  |
+Objectif : démontrer la solidité et la qualité du socle serveur.
 
----
+À aborder :
 
-## **9. Livrables attendus**
+* Technologies utilisées (Node.js / Express ou Django REST)
+* Structure du projet back-end
+* Modélisation de la base de données
+* Endpoints principaux (authentification, événements, inscriptions)
+* Authentification et autorisation (JWT, rôles)
+* Sécurité
 
-* **Dépôt Git complet** (frontend + backend) avec README détaillé.
-* **Documentation technique** (API, installation, exécution).
-* **Documentation utilisateur** (usage basique, captures).
-* **Lien vers la version déployée** (front + back).
-* [**Support de présentation pour la soutenanc**](https://github.com/wololobzh/Coordination-Dev-Front-et-Back/blob/main/Soutenance.md).
-
----
-
-## **10. Évaluation**
-
-| Critère                                  | Détails                                   | Pondération |
-| ---------------------------------------- | ----------------------------------------- | ----------- |
-| **Respect des fonctionnalités**          | Conformité aux use cases                  | 25 %        |
-| **Qualité du code et de l’architecture** | Structure, propreté, cohérence            | 25 %        |
-| **Documentation**                        | Swagger, README, guide d’installation     | 15 %        |
-| **CI/CD & tests**                        | Automatisation, couverture minimale       | 15 %        |
-| **Coordination front/back**              | Communication, intégration, gestion API   | 10 %        |
-| **Présentation / soutenance**            | Clarté, maîtrise technique, démonstration | 10 %        |
+  * Hash des mots de passe
+  * Validation des entrées
+  * Gestion des erreurs
+  * CORS
+* Documentation Swagger / OpenAPI
+* Tests back-end (unitaires et intégration)
 
 ---
 
-## **11. Ressources recommandées**
+### 5. Front-end et expérience utilisateur (8 minutes)
 
-* [React Documentation](https://react.dev)
-* [Express.js](https://expressjs.com/) / [Django REST Framework](https://www.django-rest-framework.org/)
-* [Swagger Editor](https://editor.swagger.io/)
-* [GitHub Actions](https://docs.github.com/actions)
-* [Docker Getting Started](https://docs.docker.com/get-started/)
+Objectif : évaluer la qualité de l’interface et de l’intégration avec l’API.
+
+À présenter :
+
+* Framework utilisé (React ou autre)
+* Architecture des composants
+* Routing
+* Gestion de l’état global
+* Communication avec l’API
+* Gestion de l’authentification côté client
+* Parcours utilisateur et UX
+* Gestion des erreurs et des états de chargement
+* Responsive design
+* Tests front-end (si présents)
 
 ---
 
-## **12. Conseils de réussite**
+### 6. Docker, environnements et DevOps (5 minutes)
 
-* **Définissez l’API dès le départ** : le contrat d’échange est la clé du projet.
-* **Synchronisez régulièrement vos branches front/back**.
-* **Testez vos endpoints isolément** (Postman / Insomnia) avant d’intégrer.
-* **Versionnez vos données et vos routes** pour éviter les incohérences.
-* **Documentez tout** : l’oubli de la doc est pénalisé.
-* Une intégration propre vaut mieux qu’une surenchère de fonctionnalités non terminées.
+Objectif : démontrer une approche professionnelle et industrialisée.
+
+À détailler :
+
+* Intérêt de Docker dans le projet
+* Conteneurisation du front-end et du back-end
+* Dockerfile (principes et bonnes pratiques)
+* Docker Compose (services, réseaux, volumes)
+* Gestion des variables d’environnement (.env)
+* Séparation des environnements (dev / prod)
+
+---
+
+### 7. CI/CD, déploiement et démonstration (5 minutes)
+
+Objectif : prouver que le projet fonctionne réellement en conditions proches de la production.
+
+À présenter et démontrer :
+
+* Pipeline CI/CD
+
+  * Lint
+  * Tests
+  * Build
+  * Déploiement
+* Outils utilisés (GitHub Actions ou équivalent)
+* Accès à l’application déployée
+* Démonstration fonctionnelle
+
+  * Navigation visiteur
+  * Authentification utilisateur
+  * Inscription à un événement
+  * Interface administrateur
+* Accès aux dépôts GitHub
+
+La démonstration doit être fluide et préparée.
+
+---
+
+## Questions – Réponses (30 minutes)
+
+Les questions viseront à évaluer la compréhension approfondie du projet et la capacité à prendre du recul.
+
+### Conception et architecture
+
+* Pourquoi avoir choisi une architecture découplée ?
+* Quels seraient les impacts d’une montée en charge ?
+* Quelles alternatives techniques étaient possibles ?
+
+### Back-end et API
+
+* Fonctionnement précis du JWT
+* Gestion des erreurs et des statuts HTTP
+* Évolution et versionnement de l’API
+* Sécurisation supplémentaire possible
+
+### Front-end
+
+* Choix de la gestion d’état
+* Sécurité côté client
+* Performances et optimisation
+
+### Docker, DevOps et déploiement
+
+* Différence entre image et conteneur
+* Rôle de Docker Compose
+* Gestion des secrets et variables sensibles
+* Processus de mise à jour en production
+
+### Vision produit et évolutions
+
+* Améliorations fonctionnelles possibles
+* Industrialisation supplémentaire
+* Passage à l’échelle (scalabilité, monitoring, logs)
+
+---
+
+## Rappels importants
+
+* Le temps est strict : 45 minutes de présentation, puis questions.
+* Tous les membres du groupe doivent intervenir.
+* L’application, l’API et les dépôts doivent être accessibles le jour de la soutenance.
+* Le README et la documentation Swagger seront consultés.
+* L’évaluation porte autant sur la compréhension que sur le résultat final.
+
+---
+
+## Objectif final de la soutenance
+
+Montrer que vous êtes capables, en équipe, de :
+
+* Concevoir une application web complète
+* Mettre en place une architecture propre et maintenable
+* Développer un front-end et un back-end coordonnés
+* Gérer les environnements et la configuration
+* Conteneuriser et déployer un projet
+* Mettre en place une démarche DevOps cohérente
+* Présenter et défendre vos choix techniques de manière professionnelle
