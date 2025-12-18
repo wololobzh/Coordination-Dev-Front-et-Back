@@ -160,7 +160,7 @@ Les deux couches de l’application devront être **parfaitement séparées** :
 * **Documentation technique** (API, installation, exécution).
 * **Documentation utilisateur** (usage basique, captures).
 * **Lien vers la version déployée** (front + back).
-* **Support de présentation pour la soutenance**.
+* [**Support de présentation pour la soutenanc**](https://github.com/wololobzh/Coordination-Dev-Front-et-Back/blob/main/Soutenance.md).
 
 ---
 
